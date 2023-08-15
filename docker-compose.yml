@@ -1,0 +1,10 @@
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - WATCHTOWER_NOTIFICATION_REPORT=true
+      - WATCHTOWER_NOTIFICATION_URL=discord://${WATCHTOWER_NOTIFICATION_DISCORD_TOKEN}@${WATCHTOWER_NOTIFICATION_DISCORD_CHANNEL}
